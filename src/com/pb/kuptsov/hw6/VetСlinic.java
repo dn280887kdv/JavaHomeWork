@@ -14,9 +14,8 @@ public class VetСlinic {
         Class clazz = Class.forName("com.pb.kuptsov.hw6.Veterinarian");
         Constructor constructor = clazz.getConstructor();
         Object obj = constructor.newInstance();
-
-        for(Animal animal: animals){
-            if(obj instanceof Veterinarian){
+        if(obj instanceof Veterinarian){
+            for(Animal animal: animals){
                 ((Veterinarian) obj).treatAnimal(animal);
             }
         }
