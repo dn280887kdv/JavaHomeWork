@@ -20,6 +20,7 @@ public class NumBox <T extends Number>{
     public void add(T num){
         if(length < mas.length){
             mas[length] = num;
+            length++;
         } else throw new IndexOutOfBoundsException("Массив заполнен, выберите другой");
     }
 
