@@ -16,6 +16,7 @@ class Server extends Thread {
         this.socket = socket;
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+        System.out.println("запущен поток с сервером");
         start();
     }
     @Override
@@ -27,10 +28,12 @@ class Server extends Thread {
             while (true) {
                 text = in.readLine();
                 if(text.equals("stop")) {
+                    System.out.println("Поток с сервером останавливается");
                     break;                }
                 for (Server server : ServerMain.serverList) {
-                    out.write(date + "Сообщение: " + text + "\n");
-                    out.flush();
+                    System.out.println("тест");
+                    server.out.write(date + " Сообщение: " + text + "\n");
+                    server.out.flush();
                 }
             }
 
